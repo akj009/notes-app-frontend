@@ -1,9 +1,9 @@
 {
-  "name": "notesapp-redux-starter",
+  "name": "notesapp",
   "version": "1.0.0",
-  "description": "Starter kit for React and Redux Pluralsight course by Cory House",
-  "author": "Cory House",
-  "license": "MIT",
+  "description": "Notesapp front end written in React.",
+  "author": "Abhishek Jha",
+  "license": "private",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch",
@@ -68,6 +68,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/coryhouse/pluralsight-redux-starter"
+    "url": "https://github.com/akj009/notes-app-frontend"
   }
 }
