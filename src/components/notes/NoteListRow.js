@@ -5,9 +5,9 @@ import {longToDate} from "../common/Util";
 const NoteListRow = ({note}) => {
   return (
     <tr>
-      <td scope="row"><Link to={'note/' + note.title}> {note.title} </Link></td>
-      <td style={{maxHeight: '4em', display: 'block', overflow: 'hidden'}}>{note.content}</td>
-      <td>{note.time?longToDate(note.time):''}</td>
+      <td><Link to={'note/' + note.title}> {note.title} </Link></td>
+      <td className={"mdl-data-table__cell--non-numeric"} style={{whiteSpace: "normal"}}>{note.content}</td>
+      <td style={{whiteSpace: "normal"}}>{note.time?longToDate(note.time):''}</td>
     </tr>
   );
 };

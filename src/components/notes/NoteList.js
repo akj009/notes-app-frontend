@@ -3,12 +3,12 @@ import NoteListRow from "./NoteListRow";
 
 const NoteList = ({notes}) => {
   return (
-    <table className="table table-hover">
+    <table className="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
       <thead>
         <tr>
-          <th scope="col">Title</th>
-          <th scope="col">Content</th>
-          <th scope="col">Created On</th>
+          <th>Title</th>
+          <th className={"mdl-data-table__cell--non-numeric"}>Content</th>
+          <th>Created On</th>
         </tr>
       </thead>
       <tbody>{
