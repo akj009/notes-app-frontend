@@ -1,3 +1,15 @@
 body i {
   cursor: pointer;
 }
+
+div.mdl-textfield {
+  width: 100%;
+}
+
+button.pull-right {
+  float: right;
+}
+
+.mdl-layout-title {
+  border-bottom: 1px solid rgba(0,0,0,.12);
+}

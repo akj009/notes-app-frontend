@@ -13,7 +13,10 @@ class ListNotes extends React.Component {
   render() {
     const {notes} = this.props;
     return (
+      <div>
+
         <NoteList notes={notes}/>
+      </div>
     );
   }
 }

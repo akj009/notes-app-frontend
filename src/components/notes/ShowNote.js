@@ -19,6 +19,12 @@ class ShowNote extends React.Component {
     this.onDelete = this.onDelete.bind(this);
   }
 
+  componentDidMount() {
+    if(typeof componentHandler !== "undefined") {
+      componentHandler.upgradeAllRegistered();
+    }
+  }
+
   onSave(event) {
     event.preventDefault();
     if(this.state.populated) {
@@ -48,16 +54,24 @@ class ShowNote extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.props.note.title}</h1>
-        <NoteForm
-          note={this.state.note}
-          onSave={this.onSave}
-          onChange={this.onChange}
-          errors={this.state.errors}
-          populated={this.state.populated}
-          onDelete={this.onDelete}
-        />
+      <div className="mdl-grid">
+        <div className="mdl-cell mdl-cell--1-col"> </div>
+        <div className="mdl-cell mdl-cell--10-col mdl-card">
+          <div className="mdl-card__title mdl-card--border">
+            <h2 className="mdl-card__title-text">
+            {this.props.note.title}
+            </h2>
+          </div>
+          <NoteForm
+            note={this.state.note}
+            onSave={this.onSave}
+            onChange={this.onChange}
+            errors={this.state.errors}
+            populated={this.state.populated}
+            onDelete={this.onDelete}
+          />
+        </div>
+        <div className="mdl-cell mdl-cell--1-col"> </div>
       </div>
     );
   }

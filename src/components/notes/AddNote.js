@@ -19,6 +19,12 @@ class AddNote extends React.Component {
     this.onClickSave = this.onClickSave.bind(this);
   }
 
+  componentDidMount() {
+    if(typeof componentHandler !== "undefined") {
+      componentHandler.upgradeAllRegistered();
+    }
+  }
+
   onClickSave() {
     if(this.state.note.title && this.state.note.content) {
       this.props.dispatch(noteActions.createNote(this.state.note));
@@ -42,34 +48,43 @@ class AddNote extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Add Notes </h1>
+      <div className="mdl-grid">
+        <div className="mdl-cell mdl-cell--1-col"> </div>
+        <div className="mdl-cell mdl-cell--10-col mdl-card">
+          <div className="mdl-card__title mdl-card--border">
+            <h2 className="mdl-card__title-text">Add Notes </h2>
+          </div>
+          <div className="mdl-card__supporting-text">
+            <form action="#">
+              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input
+                  type="text" className="mdl-textfield__input" id="title"
+                  onChange={this.onTitleChange}
+                  value={this.state.note.title}
+                />
+                <label className="mdl-textfield__label" htmlFor="title">Add note title</label>
+              </div>
 
-          <div className="form-group">
-            <label htmlFor="title">Note title:</label>
-            <input
-              type="text" className="form-control" id="title"
-              placeholder="Add note title"
-              onChange={this.onTitleChange}
-              value={this.state.note.title}
-            />
+              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <textarea
+                  type="text" className="mdl-textfield__input" id="content"
+                  rows="4"
+                  onChange={this.onContentChange}
+                  value={this.state.note.content}
+                />
+                <label className="mdl-textfield__label" htmlFor="content">Add note content</label>
+              </div>
+            </form>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="content">Note content:</label>
-            <input
-              type="text" className="form-control" id="content"
-              placeholder="Add note content"
-              onChange={this.onContentChange}
-              value={this.state.note.content}
-            />
+          <div className="mdl-card__actions mdl-card--border">
+            <button type="submit" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+                    onClick={this.onClickSave}
+                    value="Save">Save note
+            </button>
           </div>
-
-          <button type="submit" className="btn btn-primary mb-2"
-                  onClick={this.onClickSave}
-                  value="Save">Save note
-          </button>
-
+        </div>
+        <div className="mdl-cell mdl-cell--1-col"> </div>
       </div>
     );
   }
