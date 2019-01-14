@@ -4,6 +4,8 @@ import * as noteActions from '../../actions/noteActions';
 import {bindActionCreators} from "redux";
 import NoteForm from "./NoteForm";
 
+/*eslint-disable no-undef */
+
 class ShowNote extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -17,6 +19,12 @@ class ShowNote extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.onSave = this.onSave.bind(this);
     this.onDelete = this.onDelete.bind(this);
+  }
+
+  componentDidMount() {
+    if(typeof componentHandler !== "undefined") {
+      componentHandler.upgradeAllRegistered();
+    }
   }
 
   onSave(event) {
@@ -48,16 +56,24 @@ class ShowNote extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.props.note.title}</h1>
-        <NoteForm
-          note={this.state.note}
-          onSave={this.onSave}
-          onChange={this.onChange}
-          errors={this.state.errors}
-          populated={this.state.populated}
-          onDelete={this.onDelete}
-        />
+      <div className="mdl-grid">
+        <div className="mdl-cell mdl-cell--1-col"> </div>
+        <div className="mdl-cell mdl-cell--10-col mdl-card">
+          <div className="mdl-card__title mdl-card--border">
+            <h2 className="mdl-card__title-text">
+            {this.props.note.title}
+            </h2>
+          </div>
+          <NoteForm
+            note={this.state.note}
+            onSave={this.onSave}
+            onChange={this.onChange}
+            errors={this.state.errors}
+            populated={this.state.populated}
+            onDelete={this.onDelete}
+          />
+        </div>
+        <div className="mdl-cell mdl-cell--1-col"> </div>
       </div>
     );
   }

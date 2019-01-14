@@ -1,5 +1,5 @@
 import colors from 'colors';
 
 /* eslint-disable no-console */
-
-console.log(':::: starting server in dev mode'.green);
+let envMode = process.env.NODE_ENV || 'dev';
+console.log(`:::: starting server in ${envMode} mode`.green);

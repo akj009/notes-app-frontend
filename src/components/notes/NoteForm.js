@@ -1,10 +1,11 @@
 import React, {PropTypes} from 'react';
-import {TextInput} from '../common/FormComponents';
+import {TextInput, TextAreaInput} from '../common/FormComponents';
 import {longToDate} from "../common/Util";
 
 const NoteForm = ({note, onChange, onSave, populated, errors, onDelete}) => {
   return (
     <form>
+      <div className="mdl-card__supporting-text">
       <TextInput
         name = "title"
         label = {"Title"}
@@ -15,7 +16,7 @@ const NoteForm = ({note, onChange, onSave, populated, errors, onDelete}) => {
         populated = {populated}
       />
 
-      <TextInput
+      <TextAreaInput
         name = "content"
         label = {"Content"}
         value = {note.content}
@@ -25,32 +26,32 @@ const NoteForm = ({note, onChange, onSave, populated, errors, onDelete}) => {
         populated = {populated}
       />
 
-      <div className="form-group">
+      <div className="mdl-textfield mdl-js-textfield">
         <label htmlFor="time">Creation Time</label>
-        <div className="field">
           <input
             type="text"
             disabled="disabled"
             name="time"
-            className="form-control"
+            className="mdl-textfield__input"
             value={note.time?longToDate(note.time):''}
           />
-        </div>
+      </div>
       </div>
 
+      <div className="mdl-card__actions mdl-card--border">
       <button
         name={populated ? 'Update' : 'Save'}
-        className={"btn btn-primary"}
+        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
         onClick={onSave}
-        style={{width:'15%', minWidth:'150px'}}
       >{populated ? 'Update' : 'Save'}</button>
 
       <button
         name="Delete"
-        className={"btn btn-danger float-right"}
+        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect pull-right mdl-button--accent"
         onClick={onDelete}
-        style={{width:'15%', minWidth:'150px'}}
+        style={{backgroundColor: 'red'}}
       >Delete</button>
+      </div>
     </form>
   );
 };

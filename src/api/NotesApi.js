@@ -1,7 +1,9 @@
-const getAllNotesEndpoint = 'http://localhost:8080/notesapp/notes/';
-const addNoteEndpoint = 'http://localhost:8080/notesapp/notes/add';
-const updateNoteEndpoint = 'http://localhost:8080/notesapp/notes/update';
-const deleteNoteEndpoint = 'http://localhost:8080/notesapp/notes/delete/{id}';
+const serverURL = process.env.NOTES_API;
+
+const getAllNotesEndpoint = `${serverURL}/notesapp/notes/`;
+const addNoteEndpoint = `${serverURL}/notesapp/notes/add`;
+const updateNoteEndpoint = `${serverURL}/notesapp/notes/update`;
+const deleteNoteEndpoint = `${serverURL}/notesapp/notes/delete/{id}`;
 
 export const getAllNotes = () => {
   return new Promise((resolve) => {
