@@ -7,7 +7,7 @@ const NoteListRow = ({note}) => {
     <tr>
       <td><Link to={'note/' + note.title}> {note.title} </Link></td>
       <td className={"mdl-data-table__cell--non-numeric"} style={{whiteSpace: "normal"}}>{note.content}</td>
-      <td style={{whiteSpace: "normal"}}>{note.time?longToDate(note.time):''}</td>
+      <td style={{whiteSpace: "normal"}} data-value={note.time}>{note.time?longToDate(note.time):''}</td>
     </tr>
   );
 };

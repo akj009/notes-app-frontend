@@ -4,6 +4,8 @@ import * as noteActions from '../../actions/noteActions';
 import {bindActionCreators} from "redux";
 import NoteForm from "./NoteForm";
 
+/*eslint-disable no-undef */
+
 class ShowNote extends React.Component {
   constructor(props, context) {
     super(props, context);

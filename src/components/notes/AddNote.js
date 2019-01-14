@@ -2,6 +2,8 @@ import React, {PropTypes} from "react";
 import {connect} from 'react-redux';
 import * as noteActions from '../../actions/noteActions';
 
+/*eslint-disable no-undef */
+
 class AddNote extends React.Component {
   constructor(props, context) {
     super(props, context);

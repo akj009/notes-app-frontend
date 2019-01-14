@@ -1,5 +1,7 @@
 import React, {PropTypes} from "react";
 
+/*eslint-disable react/no-multi-comp */
+
 export const TextInput = ({name, label, value, placeholder, onChange, errors, populated}) => {
   let inputWrapperClass = 'mdl-textfield mdl-js-textfield';
   if(errors && errors.length > 0) {
